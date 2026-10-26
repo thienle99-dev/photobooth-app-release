@@ -10,6 +10,30 @@ This public repository hosts installable app releases and the Sparkle update fee
 2. Unzip it and move `PhotoBoothStudio.app` to Applications.
 3. The app requires macOS 14 or later. This build targets Apple Silicon.
 
+### Install with Homebrew
+
+Install the custom tap and cask:
+
+```sh
+brew tap thienle99-dev/photobooth-app-release https://github.com/thienle99-dev/photobooth-app-release.git
+brew install --cask thienle99-dev/photobooth-app-release/photobooth-studio
+```
+
+To check for a newer cask version and upgrade:
+
+```sh
+brew update
+brew upgrade --cask photobooth-studio
+```
+
+To uninstall the app:
+
+```sh
+brew uninstall --cask photobooth-studio
+```
+
+The cask pins the published ZIP checksum, requires macOS 14 or later, and currently supports Apple Silicon only. Homebrew installation does not remove macOS Gatekeeper warnings.
+
 ### Distribution status
 
 This build is ad hoc signed and has not been notarized with Apple Developer ID. macOS may show a security warning, and first launch/update behavior has not been verified on a clean Mac. Use it only on a test machine you control; it is not a production-ready distribution.
