@@ -47,3 +47,13 @@ The appcast is published as a release asset at:
 `https://github.com/thienle99-dev/photobooth-app-release/releases/latest/download/appcast.xml`
 
 Each release should include both the app ZIP and `appcast.xml`. Keep the EdDSA private key in the maintainer's Keychain or secure backup; never upload it to this repository.
+
+## Build a DMG (maintainers)
+
+Maintainers with access to the private source repository can build a drag-and-drop DMG from its root directory:
+
+```sh
+./scripts/build-dmg.sh
+```
+
+The script creates `build/dmg/PhotoBoothStudio-<version>-arm64.dmg`, using the version in `project.yml`. It archives the Release app, verifies its code signature, and adds an Applications shortcut. The current script uses ad hoc signing and does not notarize the app; macOS may show a Gatekeeper warning. This DMG is for testing, not production distribution.
